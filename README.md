@@ -46,9 +46,11 @@ nostro shellcode.
 
 Ho bisogno di compilare il programma vittima per iniziare le esercitazioni.
 
-> $ ./compile.sh pwnme.c
-> $ sudo "chown root:root pwnme"
-> $ sudo "chmod +s pwnme"
+``` sh
+$ ./compile.sh pwnme.c
+$ sudo "chown root:root pwnme"
+$ sudo "chmod +s pwnme"
+```
 
 ## pwnme
 
