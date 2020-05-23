@@ -52,10 +52,13 @@ $ sudo "chown root:root pwnme"
 $ sudo "chmod +s pwnme"
 ```
 
-## pwnme
+## L'inizio della nostra storia
 
-Il programma pwnme è vulnerabile a buffer overflow, da precedenti analisi
-sappiamo che un payload di 140 byte sarà sufficiente affinché gli ultimi 4 byte
-sovrascrivano il registro EIP.
+Da una analisi precedente sappiamo che il software pwnme è vulnerabile a buffer
+overflow. Il contenuto del file pwnme.txt, necessario al funzionamento del
+nostro tool, vieme copiato in una variabile, purtroppo senza fare un controllo
+sulla lunghezza dei dati letti da file.
 
-Abbiamo quindi 136 byte di shellcode utile.
+Nel caso il file di testo sia costituito da troppi caratteri, dopo 136 byte
+avremmo la sovrascittura del registro EIP e di fatto, l'inizio della nostra
+storia. 

@@ -3,14 +3,21 @@
 
 // exploit me with 140 buffer length. 136 bytes as payload and last 4 bytes
 // overwrites EIP
-int function(char **argv) {
+int function(char *a) {
   char buf[128];
 
-  strcpy(buf, argv[1]);
+  strcpy(buf, a);
 
   return 0;
 }
 
 int main(int argc, char **argv) {
-  return function(argv);
+  FILE *fp;
+  char buf[4096];
+
+  fp = fopen("./pwnme.txt", "r");
+  fread(buf, sizeof(char), 4096, fp);
+  printf("%s\n", buf);
+
+  return function(buf);
 }
