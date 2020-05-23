@@ -13,7 +13,7 @@ echo "[*] Compiling $filename"
 
 if [ "$extension" = "c" ]; then
 	echo "[+] Calling gcc without stack protection"
-	gcc -fno-stack-protector -z execstack $1 -o $dirname/$filename
+	gcc -g -m32 -fno-stack-protector -z execstack $1 -o $dirname/$filename
 fi
 
 if [ "$extension" = "nasm" ]; then

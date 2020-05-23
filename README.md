@@ -39,15 +39,21 @@ nostro shellcode.
   * Ubuntu 20.04
   * apt install apt install python3 gcc-multilib nasm gdb
   * peda: https://github.com/longld/peda
+  * clonate l'archivio https://github.com/thesp0nge/HackInBoSafeEdition
+  * Disabilito ASLR "echo 0 > /proc/sys/kernel/randomize_va_space"
 
-* Una macchina Windows XP come target. Per avere una virtual machine con XP, è
-  possibile seguire questo tutorial:
-  https://www.makeuseof.com/tag/download-windows-xp-for-free-and-legally-straight-from-microsoft-si/
-* In alternativa va benissimo qualsiasi macchina Windows 7 o 8 a cui avremo disabilitato [DEP e ASLR](https://311hrs.wordpress.com/2019/05/26/disable-dep-aslr-on-windows-7/)
+## Preparo la vittima
 
-* Sulla macchina Windows andrà installato:
-  + [Vulnserver](https://github.com/stephenbradshaw/vulnserver)
-  + [OllyDBG](http://www.ollydbg.de/)
+Ho bisogno di compilare il programma vittima per iniziare le esercitazioni.
 
+> $ ./compile.sh pwnme.c
+> $ sudo "chown root:root pwnme"
+> $ sudo "chmod +s pwnme"
 
+## pwnme
 
+Il programma pwnme è vulnerabile a buffer overflow, da precedenti analisi
+sappiamo che un payload di 140 byte sarà sufficiente affinché gli ultimi 4 byte
+sovrascrivano il registro EIP.
+
+Abbiamo quindi 136 byte di shellcode utile.
