@@ -59,6 +59,6 @@ overflow. Il contenuto del file pwnme.txt, necessario al funzionamento del
 nostro tool, vieme copiato in una variabile, purtroppo senza fare un controllo
 sulla lunghezza dei dati letti da file.
 
-Nel caso il file di testo sia costituito da troppi caratteri, dopo 136 byte
+Nel caso il file di testo sia costituito da troppi caratteri, dopo 140 byte
 avremmo la sovrascittura del registro EIP e di fatto, l'inizio della nostra
 storia. 
