@@ -1,3 +1,4 @@
+exploit.py
 *.nasm
 *.o
 *.sw?
