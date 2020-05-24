@@ -1,3 +1,5 @@
+*.nasm
+*.o
 *.sw?
 .gdb_history
 shellcodes/*
