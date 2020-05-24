@@ -7,9 +7,11 @@ int function(char *a) {
   char buf[128];
 
   strcpy(buf, a);
+  __asm__("jmp *%esp");
 
   return 0;
 }
+
 
 int main(int argc, char **argv) {
   FILE *fp;
