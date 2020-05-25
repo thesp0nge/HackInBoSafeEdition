@@ -1,3 +1,7 @@
+peda-*
+1*
+2*
+3*
 exploit.py
 *.nasm
 *.o

@@ -87,3 +87,14 @@ la vulnerabilità in maniera forzata, in particolare:
   l'istruzione JMP ESP
 * avendo disattivato la randomizzazione dello stack, ho il nuovo valore del
   registro EIP sempre fisso
+
+## Shellcode
+
+Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tappe del nostro viaggio:
+* v1.0: da dove arriva
+   "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x31\xd2\xb0\x0b\xcd\x80"?
+* v2.0: manovre evasive!
+* v2.1: diamoci dei privilegi
+* v2.5: togliamo i null byte
+* v3.0: nascondino
+
