@@ -87,6 +87,7 @@ Purtroppo veniamo individuati da alcuni antivirus, quindi dobbiamo trovare un
 altro modo per scrivere il nostro shellcode.
 
 ![Il payload di msfvenom su VirusTotal](/msfvenom.png)
+
 ### Disclaimer
 
 Questo talk non è su come trovare un buffer overflow ma su come customizzare il
@@ -97,6 +98,11 @@ la vulnerabilità in maniera forzata, in particolare:
   l'istruzione JMP ESP
 * avendo disattivato la randomizzazione dello stack, ho il nuovo valore del
   registro EIP sempre fisso
+
+Queste tecniche possono ingannare strumenti basati su signature. Strumenti
+evoluti che provano ad eseguire il codice in sandbox potrebbero comunque
+riconoscere i nostri payload. Un security engineer che troverà il payload e ne
+farà il reverse sarà comunque in grado di riconoscerne il contenuto malevolo.
 
 ## Shellcode
 
