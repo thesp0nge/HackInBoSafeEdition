@@ -86,7 +86,7 @@ $ msfvenom -p linux/x86/exec CMD=/bin/sh -f elf -o a.out
 Purtroppo veniamo individuati da alcuni antivirus, quindi dobbiamo trovare un
 altro modo per scrivere il nostro shellcode.
 
-![Il payload di msfvenom su VirusTotal](/msfvenom.png)
+![Il payload di msfvenom su VirusTotal](/images/msfvenom.png)
 
 ### Disclaimer
 
