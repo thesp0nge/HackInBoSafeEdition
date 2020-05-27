@@ -1,30 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int foobar() {
-  __asm__("jmp *%esp");
-}
 // exploit me with 140 buffer length. 136 bytes as payload and last 4 bytes
 // overwrites EIP
 int function(char *a) {
-  //char buf[120];
-  char buf [60];
+  char buf[128];
 
-  int b=5;
-
-
-  for (int i=0; i<50; i++){
-    b*=b;
-  }
-
-  printf("The amount of money is %d\n", b);
   strcpy(buf, a);
-  
-  for (int i=0; i<50; i++){
-    b*=b;
-  }
-
-  printf("The amount of money is %d\n", b);
+  __asm__("jmp *%esp");
 
   return 0;
 }

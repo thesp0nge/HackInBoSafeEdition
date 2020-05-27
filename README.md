@@ -59,7 +59,7 @@ overflow. Il contenuto del file pwnme.txt, necessario al funzionamento del
 nostro tool, vieme copiato in una variabile, purtroppo senza fare un controllo
 sulla lunghezza dei dati letti da file.
 
-Nel caso il file di testo sia costituito da troppi caratteri, dopo 140 byte
+Nel caso il file di testo sia costituito da troppi caratteri, dopo 84 byte
 avremmo la sovrascittura del registro EIP e di fatto, l'inizio della nostra
 storia.
 
@@ -69,9 +69,8 @@ Il PoC del nostro exploit sarà questo:
 
 import os;
 
-# 0x5655625c
-eip="\x5c\x62\x55\x56"
-shellcode = "A"*140+eip
+eip="BBBB"
+shellcode = "A"*84+eip+"C"*200
 f = open("pwnme.txt","w")
 f.write(shellcode)
 f.close()
@@ -113,5 +112,9 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
 * v2.0: manovre evasive! (https://www.virustotal.com/gui/file/93f5fc907caa0a5e00e320b59a13059e28c243f13c75ef5c5309eff23dfe15be/detection)
 * v2.1: diamoci dei privilegi (https://www.virustotal.com/gui/file/1596d2642b5656ee0e8cf137c097a308329d3cbdcb238c921a605e0b148b9959/detection)
 * v2.5: togliamo i null byte (https://www.virustotal.com/gui/file/d98b0c36e6dacd22f4f5b1192b7d630221346fb5b2a177eaa00dc1a944aa232f/detection)
-* v3.0: nascondino
+* v3.0: nascondino (bonus tip: il mistero del segfault solitario) (https://www.virustotal.com/gui/file/9de443e65e82833c66910bbdee23b1bfea7635adcb5c8cc5a6d7cccd04d47a22/detection)
+
+A questo punto torniamo un po' indietro. Abbiamo ottenuto uno shellcode che, quando viene _encodato_, diventa troppo grosso.
+* v3.1
+* v5.0
 
