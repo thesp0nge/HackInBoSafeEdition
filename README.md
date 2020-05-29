@@ -120,8 +120,14 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
   + allineo il mio shellcode in modo che sia composto da un numero intero di
     parole a 32 bit. Nel caso appendo tanti \x90 alla bisogna.
   + per impostare un registro a 0 posso scegliere un numero a 32 bit a caso,
-    calcolarne il NOT e poi fare l'AND tra il registrro e questi due valori.
+    calcolarne il NOT e poi fare l'AND tra il registro e questi due valori.
     Come risultato avremmo che il registro sarà sempre a 0 qualsiasi sia il suo
     valore iniziale.
+  * per scrivere una parola da 32bit, la scriverò come somma di 2 interi che ho
+    "estratto" a caso
+  * ogni volta mi sottrarrò 4 a EBX che sarà il mio puntatore all'inizio dello
+    shellcode.
+  * JMP EBX alla fine ed inizierà il mio shellcode che ho decodificato
+    direttamente nello stack
 
 
