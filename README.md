@@ -20,7 +20,9 @@ sì.
 
 ## A chi è rivolto?
 
-Penetration tester Analisti SOC Sviluppatori
+* Penetration tester 
+* Analisti SOC 
+* Sviluppatori
 
 ## Livello di difficoltà
 
