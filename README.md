@@ -113,5 +113,13 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
 * v2.1: diamoci dei privilegi (https://www.virustotal.com/gui/file/1596d2642b5656ee0e8cf137c097a308329d3cbdcb238c921a605e0b148b9959/detection)
 * v2.5: togliamo i null byte (https://www.virustotal.com/gui/file/d98b0c36e6dacd22f4f5b1192b7d630221346fb5b2a177eaa00dc1a944aa232f/detection)
 * v3.0: nascondino (bonus tip: il mistero del segfault solitario) (https://www.virustotal.com/gui/file/9de443e65e82833c66910bbdee23b1bfea7635adcb5c8cc5a6d7cccd04d47a22/detection)
-* v4.0: black magic
+* v4.0: torniamo all'alfabeto
+  + prendo il mio shellcode e lo scrivo con un set ristretto di operazioni
+  + allineo il mio shellcode in modo che sia composto da un numero intero di
+    parole a 32 bit. Nel caso appendo tanti \x90 alla bisogna.
+  + per impostare un registro a 0 posso scegliere un numero a 32 bit a caso,
+    calcolarne il NOT e poi fare l'AND tra il registrro e questi due valori.
+    Come risultato avremmo che il registro sarà sempre a 0 qualsiasi sia il suo
+    valore iniziale.
+
 
