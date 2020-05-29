@@ -130,4 +130,8 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
   * JMP EBX alla fine ed inizierà il mio shellcode che ho decodificato
     direttamente nello stack
 
+  > L'ispirazione per questo shellcode è presa da [questo articolo su
+  > Phrack](http://phrack.org/issues/57/15.html#article) e da [questo
+  > talk](https://www.youtube.com/watch?v=gHISpAZiAm0) di Mati Aharoni tenuto a
+  > Defcon16
 
