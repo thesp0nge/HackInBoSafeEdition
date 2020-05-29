@@ -115,6 +115,9 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
 * v2.1: diamoci dei privilegi (https://www.virustotal.com/gui/file/1596d2642b5656ee0e8cf137c097a308329d3cbdcb238c921a605e0b148b9959/detection)
 * v2.5: togliamo i null byte (https://www.virustotal.com/gui/file/d98b0c36e6dacd22f4f5b1192b7d630221346fb5b2a177eaa00dc1a944aa232f/detection)
 * v3.0: nascondino (bonus tip: il mistero del segfault solitario) (https://www.virustotal.com/gui/file/9de443e65e82833c66910bbdee23b1bfea7635adcb5c8cc5a6d7cccd04d47a22/detection)
+  + uso un loop di XOR dove decodifico lo shellcode con la chiave 0xdeadbeef
+    usata per offuscare il codice
+  + faccio uno swap tra la prima e la seconda metà di ogni word
 * v4.0: torniamo all'alfabeto
   + prendo il mio shellcode e lo scrivo con un set ristretto di operazioni
   + allineo il mio shellcode in modo che sia composto da un numero intero di
