@@ -49,6 +49,7 @@ BASSO
 Ho bisogno di compilare il programma vittima per iniziare le esercitazioni.
 
 ``` sh
+$ cd victim
 $ ./compile.sh pwnme.c
 $ sudo "chown root:root pwnme"
 $ sudo "chmod +s pwnme"
