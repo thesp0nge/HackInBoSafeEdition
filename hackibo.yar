@@ -36,7 +36,7 @@ rule Msfvenom3
         sourceOrg = "Giovanni Analista"
         sourcePath = "basi_di_ceh.txt"
     strings:
-        $string = { dbd4d97424f4bacc70dc975e29c9b10b31561a03  }
+        $string = { f33f6a2b  }
     condition: 
         $string
 }
