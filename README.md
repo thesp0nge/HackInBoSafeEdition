@@ -18,6 +18,10 @@ payload.
 Il bypass dell'antivirus forse non sarà garantito, ma il divertimento... quello
 sì.
 
+## Slide
+
+Le slide sono disponibili [qui](https://docs.google.com/presentation/d/1IbfUypkz_y0By-lPAp0EZFMTUz8DsI6-G2jQcqt6wKU)
+
 ## A chi è rivolto?
 
 * Penetration tester 
@@ -115,11 +119,7 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
 * v2.0: manovre evasive! (https://www.virustotal.com/gui/file/93f5fc907caa0a5e00e320b59a13059e28c243f13c75ef5c5309eff23dfe15be/detection)
 * v2.1: diamoci dei privilegi (https://www.virustotal.com/gui/file/1596d2642b5656ee0e8cf137c097a308329d3cbdcb238c921a605e0b148b9959/detection)
 * v2.5: togliamo i null byte (https://www.virustotal.com/gui/file/d98b0c36e6dacd22f4f5b1192b7d630221346fb5b2a177eaa00dc1a944aa232f/detection)
-* v3.0: nascondino (bonus tip: il mistero del segfault solitario) (https://www.virustotal.com/gui/file/9de443e65e82833c66910bbdee23b1bfea7635adcb5c8cc5a6d7cccd04d47a22/detection)
-  + uso un loop di XOR dove decodifico lo shellcode con la chiave 0xdeadbeef
-    usata per offuscare il codice
-  + faccio uno swap tra la prima e la seconda metà di ogni word
-* v4.0: torniamo all'alfabeto
+* v3.0: torniamo all'alfabeto
   + prendo il mio shellcode e lo scrivo con un set ristretto di operazioni
   + allineo il mio shellcode in modo che sia composto da un numero intero di
     parole a 32 bit. Nel caso appendo tanti \x90 alla bisogna.
@@ -138,4 +138,8 @@ Andremo ad analizzare lo shellcode che esegue "/bin/sh" e queste saranno le tapp
   > Phrack](http://phrack.org/issues/57/15.html#article) e da [questo
   > talk](https://www.youtube.com/watch?v=gHISpAZiAm0) di Mati Aharoni tenuto a
   > Defcon16
+* v4.0: nascondino (bonus tip: il mistero del segfault solitario) (https://www.virustotal.com/gui/file/9de443e65e82833c66910bbdee23b1bfea7635adcb5c8cc5a6d7cccd04d47a22/detection)
+  + uso un loop di XOR dove decodifico lo shellcode con la chiave 0xdeadbeef
+    usata per offuscare il codice
+  + faccio uno swap tra la prima e la seconda metà di ogni word
 
