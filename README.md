@@ -10,10 +10,8 @@ Esistono situazioni dove hai bisogno di essere più creativo: devi evitare
 l'antivirus, devi nasconderti dall'IDS o semplicemente vuoi divertirti un po'
 ed avere il pieno controllo del codice che sarà eseguito sulla macchina.
 
-Ecco, in questo talk vedremo come creare 2 shellcode veramente semplici in
-ambiente Linux x86 e, partendo da un codice funzionante, andremo ad aggiungere
-tecniche di offuscamento, egg hunting e polimorfismo per far evolvere il nostro
-payload.
+Ecco, in questo talk vedremo come fare evolvere uno shellcode in ambiente Linux
+x86 aggiungendo riscrittura nel nostro codice e creando un encoder custom.
 
 Il bypass dell'antivirus forse non sarà garantito, ma il divertimento... quello
 sì.
